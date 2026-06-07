@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import type { Product } from "../model/types";
 
 type ProductCardProps = {
@@ -7,9 +9,11 @@ type ProductCardProps = {
 export const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <div className="rounded-2xl border p-4 shadow-sm">
-      <img
+      <Image
         src={product.imageUrl}
         alt={product.title}
+        width={640}
+        height={360}
         className="mb-3 h-48 w-full rounded-xl object-cover"
       />
 

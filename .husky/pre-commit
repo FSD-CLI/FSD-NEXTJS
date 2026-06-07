@@ -1,0 +1,5 @@
+#!/bin/sh
+npm run lint
+git diff --check
+npm audit --omit=dev
+npm run build

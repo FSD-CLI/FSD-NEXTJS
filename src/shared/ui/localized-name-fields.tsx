@@ -1,6 +1,6 @@
+import type { LocalizedNameInput } from "@/shared/types/localized-name";
 import { Input } from "@/shared/ui/input";
 import { Label } from "@/shared/ui/label";
-import { LocalizedNameInput } from "@/shared/types/localized-name";
 
 interface LocalizedNameFieldsProps {
   values: LocalizedNameInput;

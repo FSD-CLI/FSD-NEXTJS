@@ -1,5 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { getProducts, productQueryKeys, ProductCard, type Product } from "@/entities/products";
+import {
+  getProducts,
+  type Product,
+  ProductCard,
+  productQueryKeys,
+} from "@/entities/products";
 
 export const AllProductsPage = () => {
   const { data, isLoading, isError } = useQuery<Product[]>({
