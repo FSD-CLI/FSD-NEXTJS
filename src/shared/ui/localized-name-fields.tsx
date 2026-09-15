@@ -1,3 +1,5 @@
+"use client";
+
 import type { LocalizedNameInput } from "@/shared/types/localized-name";
 import { Input } from "@/shared/ui/input";
 import { Label } from "@/shared/ui/label";
