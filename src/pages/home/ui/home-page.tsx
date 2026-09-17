@@ -1,11 +1,19 @@
+import { fsdStack } from "@/shared/config";
+
 const layers = ["app", "pages", "widgets", "features", "entities", "shared"];
+const selectedStack: readonly string[] = [
+  fsdStack.apiClient,
+  fsdStack.serverState,
+  fsdStack.clientState,
+  fsdStack.forms,
+];
 
 export function HomePage() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-zinc-950 px-6 py-16 text-zinc-50">
       <section className="w-full max-w-4xl rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur md:p-12">
         <p className="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-cyan-300">
-          FSD CLI · Next.js
+          FSD CLI · {fsdStack.frameworkLabel}
         </p>
         <h1 className="max-w-3xl text-4xl font-bold tracking-tight md:text-6xl">
           Complete Feature-Sliced structure, ready from day one.
@@ -15,6 +23,26 @@ export function HomePage() {
           client, providers, state, forms, and reusable UI boundaries are
           already in place.
         </p>
+        <div className="mt-6 flex flex-wrap gap-2">
+          {selectedStack
+            .filter((item) => item !== "none")
+            .map((item) => (
+              <span
+                className="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-3 py-1 font-mono text-xs text-cyan-100"
+                key={item}
+              >
+                {item}
+              </span>
+            ))}
+        </div>
+        <div className="mt-8 grid gap-2 rounded-2xl border border-white/10 bg-black/20 p-4 font-mono text-sm text-zinc-300">
+          <code>{fsdStack.commands.dev}</code>
+          <code>{fsdStack.commands.generateFeature}</code>
+          <code>{fsdStack.commands.generatePage}</code>
+          <a className="text-cyan-300" href={fsdStack.docsUrl}>
+            Documentation
+          </a>
+        </div>
         <div className="mt-10 grid gap-3 sm:grid-cols-2 md:grid-cols-3">
           {layers.map((layer) => (
             <div
