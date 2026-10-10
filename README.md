@@ -3,6 +3,13 @@
 An opinionated Next.js, React, TypeScript, and Tailwind starter with the complete
 Feature-Sliced Design layer structure ready from the first commit.
 
+## Validation scope
+
+This is a starter template. Repository quality checks cover the checked-in
+example; production deployment requires validating your application, runtime,
+API integration, authentication, and hosting configuration. CLI support and
+release verification are documented at [fsdcli.me](https://fsdcli.me).
+
 ## Quick Start
 
 ```bash
@@ -61,6 +68,7 @@ questions.
 ```bash
 npm run lint
 npm run typecheck
+npm run check:template
 npm run ci
 git diff --check
 npm audit --omit=dev
@@ -76,3 +84,16 @@ If this project helps you, you can optionally support its development:
 
 For InstaPay, use the username exactly as shown and verify the recipient details
 in the app before confirming a transfer. Donations are optional.
+
+## Git workflow policy
+
+Git and Conventional Commits remain part of setup. Pre-commit checks staged and
+working-tree whitespace; full builds run in CI. Set `FSD_PRE_COMMIT_LINT=1` to
+run lint on commit or `FSD_PRE_PUSH_CHECKS=1` to run lint/build on push.
+For an intentional emergency bypass, Husky supports `HUSKY=0 git commit ...`;
+CI remains the required quality gate and failures must still be resolved.
+
+Auto-PR and PR labeling are optional and are not enabled in this template.
+Configure repository permissions, label rules, and labels before adding either
+workflow. The React template provides its own automation configuration; inspect
+that repository's current workflows before copying them.
